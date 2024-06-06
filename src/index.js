@@ -138,12 +138,6 @@ client.player.events.on("playerFinish", async (queue) => {
 
 })
 
-
-console.log("=============================================================================");
-console.log(process.env.TOKEN);
-console.log(process.env.PUPPETEER_EXECUTABLE_PATH);
-console.log("=============================================================================");
-
 client.player.extractors.loadDefault()
 
 client.commands = new Collection()
