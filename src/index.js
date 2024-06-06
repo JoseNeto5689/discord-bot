@@ -139,6 +139,11 @@ client.player.events.on("playerFinish", async (queue) => {
 })
 
 
+console.log("=============================================================================");
+console.log(process.env.TOKEN);
+console.log(process.env.PUPPETEER_EXECUTABLE_PATH);
+console.log("=============================================================================");
+
 client.player.extractors.loadDefault()
 
 client.commands = new Collection()
@@ -193,7 +198,8 @@ client.on(Events.InteractionCreate, async interaction =>{
     }
 })
 
-const express = require('express')
+const express = require('express');
+const { log } = require('node:console');
 const app = express()
 const port = process.env.PORT || 3000
 
