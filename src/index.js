@@ -91,7 +91,8 @@ client.player.events.on("playerFinish", async (queue) => {
 
     if(client.autoPlayState && (client.track.raw.source == "youtube") && queue.tracks.data.length === 0){
         const baseUrl = "https://music.youtube.com/watch?v=" + client.track.raw.id;
-        let browser = await puppeteer.launch();
+        let browser = await puppeteer.launch({args: ['--no-sandbox',
+        '--disable-setuid-sandbox']});
         const [page] = await browser.pages();
         const ua =
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36";
