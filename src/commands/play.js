@@ -58,18 +58,16 @@ data: new SlashCommandBuilder()
 		const baseUrl = "https://music.youtube.com/search?q=" + query
 
 		let browser;
-		browser = await puppeteer.launch({
-			executablePath: process.env.PUPPETEER_EXECUTABLE_PATH
-		});
+		browser = await puppeteer.launch();
 		const [page] = await browser.pages();
 		const ua =
 			"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36";
 		await page.setUserAgent(ua);
 		await page.goto(baseUrl, {waitUntil: "domcontentloaded"});
-		/*
+		
 		const element = await page.waitForSelector("#yDmH0d > c-wiz > div > div > div > div.v2Yske > div.CqMh6b > div.qqtRac > div.KZ9vpc > form:nth-child(3) > div > div > button > div.VfPpkd-RLmnJb")
         await element.evaluate(b => b.click())
-		*/
+		
 		let pos = 1
 
 		while(true) {

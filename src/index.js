@@ -91,19 +91,16 @@ client.player.events.on("playerFinish", async (queue) => {
 
     if(client.autoPlayState && (client.track.raw.source == "youtube") && queue.tracks.data.length === 0){
         const baseUrl = "https://music.youtube.com/watch?v=" + client.track.raw.id;
-        let browser = await puppeteer.launch({
-            executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
-        });
+        let browser = await puppeteer.launch();
         const [page] = await browser.pages();
         const ua =
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36";
         await page.setUserAgent(ua);
         await page.goto(baseUrl, {waitUntil: "domcontentloaded"});
-        /*
+        
         const element = await page.waitForSelector("#yDmH0d > c-wiz > div > div > div > div.v2Yske > div.CqMh6b > div.qqtRac > div.KZ9vpc > form:nth-child(3) > div > div > button > div.VfPpkd-RLmnJb")
-
         await element.evaluate(b => b.click())
-        */
+        
         /*
         const button = await page.waitForSelector("#tabsContent > tp-yt-paper-tab:nth-child(4)")
 
